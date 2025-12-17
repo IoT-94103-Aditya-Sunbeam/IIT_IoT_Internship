@@ -1,0 +1,37 @@
+mysql> create database smart_agri_IoT;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use smart_agri_IoT;
+Database changed
+mysql> create table soil_moisture(id INT , moisture_level FLOAT , dta DATETIME);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO soil_moisture VALUES(1,28.15,NOW());
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO soil_moisture VALUES(2,31.45,NOW());
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO soil_moisture VALUES(1,24.78,NOW());
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from soil_moisture
+    -> ;
++------+----------------+---------------------+
+| id   | moisture_level | dta                 |
++------+----------------+---------------------+
+|    1 |          28.15 | 2025-12-17 12:10:02 |
+|    2 |          31.45 | 2025-12-17 12:10:15 |
+|    1 |          24.78 | 2025-12-17 12:10:35 |
++------+----------------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from soil_moisture where moisture_level < 25.00;
++------+----------------+---------------------+
+| id   | moisture_level | dta                 |
++------+----------------+---------------------+
+|    1 |          24.78 | 2025-12-17 12:10:35 |
++------+----------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>
